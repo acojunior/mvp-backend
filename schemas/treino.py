@@ -27,6 +27,14 @@ class TreinoUpdateSchema(BaseModel):
     exercicios: List[ExercicioNoTreinoSchema] = []
 
 
+class TreinoViewSchema(BaseModel):
+    """ Define como um treino será retornado.
+    """
+    id: int = 1
+    nome: str = "Treino de Peito"
+    exercicios: List[ExercicioNoTreinoSchema]
+
+
 class ListagemTreinosSchema(BaseModel):
     """ Define como uma listagem de treinos será retornada.
     """
@@ -57,14 +65,6 @@ def apresenta_treinos(treinos: List[Treino]):
         })
 
     return {"treinos": result}
-
-
-class TreinoViewSchema(BaseModel):
-    """ Define como um treino será retornado.
-    """
-    id: int = 1
-    nome: str = "Treino de Peito"
-    exercicios: List[ExercicioNoTreinoSchema]
 
 
 class TreinoDelSchema(BaseModel):
