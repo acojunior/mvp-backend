@@ -34,6 +34,17 @@ class ClienteUpdateSchema(BaseModel):
     treinos: List[TreinoDoClienteSchema] = []
 
 
+class ClienteViewSchema(BaseModel):
+    """ Define como um cliente será retornado.
+    """
+    id: int = 1
+    nome: str = "Antonio Carlos"
+    data_nascimento: date = "1994-08-03"
+    altura: float = 2.03
+    peso: float = 100
+    treinos: List[TreinoDoClienteSchema]
+
+
 class ListagemClientesSchema(BaseModel):
     """ Define como uma listagem de clientes será retornada.
     """
@@ -69,17 +80,6 @@ def apresenta_clientes(clientes: List[Cliente]):
         })
 
     return {"clientes": result}
-
-
-class ClienteViewSchema(BaseModel):
-    """ Define como um cliente será retornado.
-    """
-    id: int = 1
-    nome: str = "Antonio Carlos"
-    data_nascimento: date = "1994-08-03"
-    altura: float = 2.03
-    peso: float = 100
-    treinos: List[TreinoDoClienteSchema]
 
 
 class ClienteDelSchema(BaseModel):
