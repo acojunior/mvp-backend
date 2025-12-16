@@ -21,6 +21,14 @@ class ExercicioUpdateSchema(BaseModel):
     id: int = 1
     nome: str = "Agachamento"
 
+
+class ExercicioViewSchema(BaseModel):
+    """ Define como um exercício será retornado.
+    """
+    id: int = 1
+    nome: str = "Supino inclinado"
+
+
 class ListagemExerciciosSchema(BaseModel):
     """ Define como uma listagem de exercícios será retornada.
     """
@@ -39,13 +47,6 @@ def apresenta_exercicios(exercicios: List[Exercicio]):
         })
 
     return {"exercicios": result}
-
-
-class ExercicioViewSchema(BaseModel):
-    """ Define como um exercício será retornado.
-    """
-    id: int = 1
-    nome: str = "Supino inclinado"
 
 
 class ExercicioDelSchema(BaseModel):
